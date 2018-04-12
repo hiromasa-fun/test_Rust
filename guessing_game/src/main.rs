@@ -18,6 +18,9 @@ fn main() {
     //乱数確認(debug用)
     println!("The select number is: {}", select_number);
 
+    //ループ
+    loop {
+
     //予想値を入力してください
     println!("Please input your guess.");
 
@@ -39,6 +42,10 @@ fn main() {
     match guess.cmp(&select_number) {
     	  Ordering::Less => println!("Too small!"),
 	  Ordering::Greater => println!("Too big!"),
-	  Ordering::Equal => println!("You win!"),
+	  Ordering::Equal => {
+	  	println!("You win!");
+		break;
+		}
 	  }
+    }
 }
