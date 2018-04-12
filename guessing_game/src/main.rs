@@ -32,8 +32,10 @@ fn main() {
        	.expect("Failed to read line");
 
     //guessを文字列からu32型に変更(shadowing)
-    let guess: u32 = guess.trim().parse()
-    	.expect("Please type your number!");
+    let guess: u32 = match guess.trim().parse() {
+    	Ok(num) => num,
+	Err(_) => continue,
+};
 
     //あなたの予想値:{}
     println!("You guessed: {}", guess);
